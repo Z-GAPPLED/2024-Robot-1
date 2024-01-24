@@ -9,7 +9,7 @@ package frc.robot.commands;
 
 import java.util.function.DoubleSupplier;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 
 import frc.robot.subsystems.DriveSubsystem;
 
@@ -18,7 +18,7 @@ import frc.robot.subsystems.DriveSubsystem;
  * explicitly for pedagogical purposes - actual code should inline a command this simple with {@link
  * edu.wpi.first.wpilibj2.command.RunCommand}.
  */
-public class TankDrive extends CommandBase {
+public class TankDrive extends Command {
   private final DriveSubsystem m_drive;
   private final DoubleSupplier m_left;
   private final DoubleSupplier m_right;
