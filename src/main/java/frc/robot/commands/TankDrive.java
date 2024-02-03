@@ -10,6 +10,8 @@ package frc.robot.commands;
 import java.util.function.DoubleSupplier;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+
 
 import frc.robot.subsystems.DriveSubsystem;
 
@@ -34,7 +36,7 @@ public class TankDrive extends Command {
     m_drive = subsystem;
     m_left = left;
     m_right = right;
-    addRequirements(m_drive);
+    //addRequirements(m_drive);
   }
 
   @Override

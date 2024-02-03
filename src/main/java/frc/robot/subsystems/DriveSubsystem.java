@@ -10,7 +10,12 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 //import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+<<<<<<< HEAD
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX; // you need to install CTRE pheonix
+=======
+//import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix6.hardware.*;
+>>>>>>> 9cfa8d2362f75e235da887e5e6cfba553d525981
 
 import frc.robot.Constants.DriveConstants;
 
@@ -25,8 +30,13 @@ public class DriveSubsystem extends SubsystemBase {
         new SpeedControllerGroup(new WPI_TalonSRX(DriveConstants.kRightMotor1Port),
                                 new WPI_TalonSRX(DriveConstants.kRightMotor2Port));
    */
+<<<<<<< HEAD
     private final WPI_TalonSRX leftMotors = new WPI_TalonSRX(DriveConstants.kLeftMotor1Port);
     private final WPI_TalonSRX rightMotors = new WPI_TalonSRX(DriveConstants.kRightMotor1Port);
+=======
+    private final TalonFX leftMotors = new TalonFX(DriveConstants.kLeftMotor1Port);
+    private final TalonFX rightMotors = new TalonFX(DriveConstants.kRightMotor1Port);
+>>>>>>> 9cfa8d2362f75e235da887e5e6cfba553d525981
      // The robot's drive
     private final DifferentialDrive t_drive = new DifferentialDrive(leftMotors, rightMotors);
     
@@ -67,4 +77,8 @@ public class DriveSubsystem extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 9cfa8d2362f75e235da887e5e6cfba553d525981
