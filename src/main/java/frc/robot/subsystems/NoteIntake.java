@@ -11,5 +11,4 @@ public class NoteIntake extends SubsystemBase {
         IntakeMotor = new WPI_TalonSRX(Constants.nIntakeConstants.kIntakeMotor);
     }
 
-    // ... rest of your code
 }
