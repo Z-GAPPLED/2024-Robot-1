@@ -51,5 +51,6 @@ public static final class nIntakeConstants {
     public static final int kIntakeMotor = 9;
     public static final int kLaunchMotor1 = 6;
     public static final int kLaunchMotor2 = 4;
+    public static final int kShooterMotor = 12;
 }
 }

@@ -12,9 +12,13 @@ import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.TankDrive;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.NoteIntake;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import edu.wpi.first.wpilibj.Joystick;
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
@@ -29,8 +33,8 @@ public class RobotContainer {
   private final NoteIntake intake = new NoteIntake();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
-  private final CommandXboxController m_driverController =
-      new CommandXboxController(OIConstants.kXboxControllerPort);
+  private final XboxController m_driverController =
+      new XboxController(OIConstants.kXboxControllerPort);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -62,9 +66,11 @@ public class RobotContainer {
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
-    m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
-
-
+    new JoystickButton(m_driverController, XboxController.Button.kX.value).onTrue(m_exampleSubsystem.exampleMethodCommand());
+    // Bind the shoot command to the 'B' button on the controller
+    new JoystickButton(m_driverController, XboxController.Button.kB.value).onTrue(shootCommand);
+    // Bind the shoot command to the 'A' button on the controller
+    new JoystickButton(m_driverController, XboxController.Button.kA.value).onTrue(intakeCommand);
   }
 
   /**
@@ -77,24 +83,6 @@ public class RobotContainer {
     return Autos.exampleAuto(m_exampleSubsystem);
   }
 
-  
-
-  Command intakeCommand = new Command() {
-    @Override
-    public void execute() {
-        double speed = m_driverController.getRightTriggerAxis();
-        intake.IntakeMotor.set(speed);
-    }
-
-    @Override
-    public boolean isFinished() {
-        return false;
-    }
-
-    @Override
-    public void end(boolean interrupted) {
-        intake.IntakeMotor.stopMotor();
-    }
-  };
-
+  Command shootCommand = new InstantCommand(() -> intake.shooterMotor.set(Constants.nIntakeConstants.kShooterMotor), intake);
+  Command intakeCommand = new InstantCommand(() -> intake.shooterMotor.set(Constants.nIntakeConstants.kIntakeMotor), intake);
 }
