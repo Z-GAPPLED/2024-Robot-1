@@ -5,7 +5,6 @@
 package frc.robot;
 
 import frc.robot.Constants.OIConstants;
-import frc.robot.Constants.DriveConstants;
 import frc.robot.commands.Autos;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.commands.ExampleCommand;
@@ -19,6 +18,9 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import edu.wpi.first.wpilibj.Joystick;
+
+import frc.robot.commands.IntakeCommand;
+import frc.robot.commands.ShootCommand;
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
@@ -29,8 +31,9 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
 
-  //The NoteIntake Subsystem
-  private final NoteIntake intake = new NoteIntake();
+  // import each subsystem
+  private final DriveSubsystem m_robotDrive = new DriveSubsystem();
+  private final NoteIntake m_intake = new NoteIntake();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final XboxController m_driverController =
@@ -39,7 +42,7 @@ public class RobotContainer {
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
-    final DriveSubsystem m_robotDrive = new DriveSubsystem();
+
     configureBindings();
     m_robotDrive.setDefaultCommand(
         // A split-stick arcade command, with forward/backward controlled by the left
@@ -68,9 +71,11 @@ public class RobotContainer {
     // cancelling on release.
     new JoystickButton(m_driverController, XboxController.Button.kX.value).onTrue(m_exampleSubsystem.exampleMethodCommand());
     // Bind the shoot command to the 'B' button on the controller
-    new JoystickButton(m_driverController, XboxController.Button.kB.value).onTrue(shootCommand);
+    new JoystickButton(m_driverController, XboxController.Button.kB.value).onTrue(new ShootCommand(m_intake));
     // Bind the shoot command to the 'A' button on the controller
-    new JoystickButton(m_driverController, XboxController.Button.kA.value).onTrue(intakeCommand);
+    new JoystickButton(m_driverController, XboxController.Button.kA.value).onTrue(new IntakeCommand(m_intake));
+
+    
   }
 
   /**
@@ -83,6 +88,6 @@ public class RobotContainer {
     return Autos.exampleAuto(m_exampleSubsystem);
   }
 
-  Command shootCommand = new InstantCommand(() -> intake.shooterMotor.set(Constants.nIntakeConstants.kShooterMotor), intake);
-  Command intakeCommand = new InstantCommand(() -> intake.shooterMotor.set(Constants.nIntakeConstants.kIntakeMotor), intake);
-}
+
+};
+
