@@ -11,10 +11,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 //import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX; // you need to install CTRE pheonix
-
-//import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-import com.ctre.phoenix6.hardware.*;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX; 
+// you need to install CTRE pheonix in online libraries
 
 
 import frc.robot.Constants.DriveConstants;
@@ -46,9 +44,6 @@ public class DriveSubsystem extends SubsystemBase {
    * @param fwd the commanded forward movement
    * @param rot the commanded rotation
    */
-    public void arcadeDrive(double fwd, double rot) {
-      t_drive.arcadeDrive(fwd, rot);
-    }
       /**
    * Drives the robot using Tank controls.
    *
