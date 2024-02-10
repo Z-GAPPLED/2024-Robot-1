@@ -35,7 +35,7 @@ public class TankDrive extends Command {
     m_drive = subsystem;
     m_left = left;
     m_right = right;
-    //addRequirements(m_drive);
+    addRequirements(m_drive);
   }
 
   @Override
