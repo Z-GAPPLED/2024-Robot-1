@@ -2,7 +2,6 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import frc.robot.subsystems.NoteIntake;
-import frc.robot.Constants;
 
 public class ShootCommand extends InstantCommand {
 
@@ -21,8 +20,8 @@ public class ShootCommand extends InstantCommand {
 
   @Override
   public void execute() {
-    m_subsystem.shooterMotor1.set(Constants.nIntakeConstants.kShooterMotor);
-    m_subsystem.shooterMotor2.set(Constants.nIntakeConstants.kShooterMotor);
+    m_subsystem.shooterMotor1.set(1);
+    m_subsystem.shooterMotor2.set(1);
     m_subsystem.shooterMotor1.setInverted(false);
     m_subsystem.shooterMotor2.setInverted(false);
   }
