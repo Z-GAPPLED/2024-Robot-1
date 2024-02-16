@@ -12,6 +12,7 @@ public class NoteIntake extends SubsystemBase {
     public final WPI_VictorSPX intakeMotor2 = new WPI_VictorSPX(Constants.MotorPorts.IntakeMotor2Port);
     public final WPI_VictorSPX shooterMotor1 = new WPI_VictorSPX(Constants.MotorPorts.ShooterMotorPort);
     public final WPI_VictorSPX shooterMotor2 = new WPI_VictorSPX(Constants.MotorPorts.ShooterMotor2Port);
+    public final WPI_VictorSPX middleMotor = new WPI_VictorSPX(Constants.MotorPorts.middleMotorPort);
 
     
 
@@ -19,8 +20,10 @@ public class NoteIntake extends SubsystemBase {
 public void IntakeNote(float speed){
     intakeMotor1.set(speed);
     intakeMotor2.set(speed);
+    middleMotor.set(speed);
     intakeMotor1.setInverted(false);
     intakeMotor2.setInverted(false);
+    middleMotor.setInverted(false);
 
 }
 

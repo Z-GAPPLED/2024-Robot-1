@@ -4,7 +4,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
-public class ArmHang extends SubsystemBase{
+public class ArmHang extends SubsystemBase {
 
     private WPI_TalonSRX motor = new WPI_TalonSRX(Constants.MotorPorts.ArmHangHydrolicPort);
 

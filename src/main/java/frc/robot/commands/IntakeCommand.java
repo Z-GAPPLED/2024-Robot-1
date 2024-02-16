@@ -23,15 +23,18 @@ public class IntakeCommand extends InstantCommand {
   public void execute() {
     m_subsystem.intakeMotor1.set(1);
     m_subsystem.intakeMotor2.set(1);
+    m_subsystem.middleMotor.set(1);
     m_subsystem.intakeMotor1.setInverted(false);
     m_subsystem.intakeMotor2.setInverted(false);
-  }
+    m_subsystem.middleMotor.setInverted(false);
+;  }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
     m_subsystem.intakeMotor1.set(0);
     m_subsystem.intakeMotor2.set(0);
+    m_subsystem.middleMotor.set(0);
   }
 
   // Returns true when the command should end.

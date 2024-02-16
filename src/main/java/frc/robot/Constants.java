@@ -65,5 +65,6 @@ public static final class MotorPorts{
     public static final int IntakeMotor2Port = 8;
     public static final int ShooterMotorPort = 7;
     public static final int ShooterMotor2Port = 6;
+    public static final int middleMotorPort = 5;
 }
 }
