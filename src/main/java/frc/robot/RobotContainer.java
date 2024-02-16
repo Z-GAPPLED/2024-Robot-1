@@ -80,7 +80,6 @@ public class RobotContainer {
     new JoystickButton(m_driverController, XboxController.Button.kX.value).onTrue(new RetractCommand(m_armHang));
     // Bind the extend hydrolic command to the 'Y' button
     new JoystickButton(m_driverController, XboxController.Button.kY.value).onTrue(new ExtendCommand(m_armHang));
-    // Bind the joystick to drive command
   }
 
   /**
