@@ -19,12 +19,14 @@ public final class Constants {
   }
   public static final class DriveConstants {
     public static final int kLeftMotor1Port = 2;
-    public static final int kRightMotor1Port = 3;
+    public static final int kLeftMotor2Port = 3;
+    public static final int kRightMotor1Port = 9;
+    public static final int kRightMotor2Port = 4;
 }
 public static final class OIConstants {
     public static final int kRightControllerPort = 0;
     public static final int kLeftControllerPort = 1;
-    public static final int kXboxControllerPort = 2;
+    public static final int kXboxControllerPort = 0;
     
     //Values of joystick button mapping
     public static final int kJoystickTrigger = 1;
@@ -56,6 +58,8 @@ public static final class nIntakeConstants {
 public static final class MotorPorts{
     public static final int ArmHangHydrolicPort = 5;
     public static final int IntakeMotorPort = 6;
+    public static final int IntakeMotor2Port = 6;
     public static final int ShooterMotorPort = 3;
+    public static final int ShooterMotor2Port = 3;
 }
 }

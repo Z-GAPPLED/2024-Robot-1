@@ -50,8 +50,8 @@ public class RobotContainer {
         // hand, and turning controlled by the right.
         new TankDrive(
             m_robotDrive,
-            () -> (m_driverController.getRawAxis(5)*-.5),
-            () -> m_driverController.getRawAxis(1)*.5));
+            () -> (m_driverController.getLeftY()),
+            () -> m_driverController.getRightY()));
   }
 
   /**
@@ -79,7 +79,7 @@ public class RobotContainer {
     new JoystickButton(m_driverController, XboxController.Button.kX.value).onTrue(new RetractCommand(m_armHang));
     // Bind the extend hydrolic command to the 'Y' button
     new JoystickButton(m_driverController, XboxController.Button.kY.value).onTrue(new ExtendCommand(m_armHang));
-    
+    // Bind the joystick to drive command
   }
 
   /**

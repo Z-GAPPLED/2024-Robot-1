@@ -21,13 +21,17 @@ public class ShootCommand extends InstantCommand {
 
   @Override
   public void execute() {
-    m_subsystem.shooterMotor.set(Constants.nIntakeConstants.kShooterMotor);
+    m_subsystem.shooterMotor1.set(Constants.nIntakeConstants.kShooterMotor);
+    m_subsystem.shooterMotor2.set(Constants.nIntakeConstants.kShooterMotor);
+    m_subsystem.shooterMotor1.setInverted(false);
+    m_subsystem.shooterMotor2.setInverted(false);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_subsystem.shooterMotor.set(0);
+    m_subsystem.shooterMotor1.set(0);
+    m_subsystem.shooterMotor2.set(0);
   }
 
   // Returns true when the command should end.
