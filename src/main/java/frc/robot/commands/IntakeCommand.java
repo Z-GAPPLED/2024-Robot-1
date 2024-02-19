@@ -21,11 +21,11 @@ public class IntakeCommand extends InstantCommand {
 
   @Override
   public void execute() {
-    m_subsystem.intakeMotor1.set(1);
-    m_subsystem.intakeMotor2.set(1);
+    m_subsystem.intakeMotor1.set(0.75);
+    m_subsystem.intakeMotor2.set(0.75);
     m_subsystem.middleMotor.set(1);
-    m_subsystem.intakeMotor1.setInverted(false);
-    m_subsystem.intakeMotor2.setInverted(false);
+    m_subsystem.intakeMotor1.setInverted(true);
+    m_subsystem.intakeMotor2.setInverted(true);
     m_subsystem.middleMotor.setInverted(false);
 ;  }
 

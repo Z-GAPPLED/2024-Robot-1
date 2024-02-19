@@ -12,7 +12,7 @@ public class NoteIntake extends SubsystemBase {
     public final WPI_VictorSPX intakeMotor2 = new WPI_VictorSPX(Constants.MotorPorts.IntakeMotor2Port);
     public final WPI_VictorSPX shooterMotor1 = new WPI_VictorSPX(Constants.MotorPorts.ShooterMotorPort);
     public final WPI_VictorSPX shooterMotor2 = new WPI_VictorSPX(Constants.MotorPorts.ShooterMotor2Port);
-    public final WPI_VictorSPX middleMotor = new WPI_VictorSPX(Constants.MotorPorts.middleMotorPort);
+    public final WPI_TalonSRX middleMotor = new WPI_TalonSRX(Constants.MotorPorts.middleMotorPort);
 
     
 
